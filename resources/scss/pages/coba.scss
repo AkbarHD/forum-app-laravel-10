@@ -1,0 +1,34 @@
+// ----------Hero section-----------
+
+.hero{ // ini utk ketika ukuran mobile
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+
+// @include media-breakpoint-up(lg){ 
+//     .nav-item{
+//         padding-left: 20px;
+//         padding-right: 20px;
+//     }
+// }
+@include media-breakpoint-up(lg){ //ini ketika ukuran large / desktop
+    .hero{
+        padding-top: 144px;
+        // min-height: 400px;
+        padding-bottom: 144px;
+    }
+}
+
+.hero-image{
+    // max-height: 100%;
+    // max-width: 100%;
+    width: 300px;
+    height: 300px;
+}
+
+
+.promote-icon{
+    width: 120px;
+    height: 120px;
+}

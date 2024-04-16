@@ -1,5 +1,7 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @import "./partials/variable.scss"; // sesuaikan path
-@import "../node_modules/bootstrap/scss/bootstrap";  // ini arahan dari bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";  // ini arahan dari bootsrap sndiri
+@import "./pages/coba.scss"; // sesuaikan path
+@import "./pages/discussions.scss"; // sesuaikan path
+@import "./pages/profile.scss"; // sesuaikan path
 @import "./partials/utility.scss"; // sesuaikan path

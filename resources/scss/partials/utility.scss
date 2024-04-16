@@ -2,6 +2,10 @@
     height: 32px;
 }
 
+.h-315px{
+    height: 315px;
+}
+
 .nav-link{
     .nav-link.active{
         color: $white;
@@ -28,6 +32,8 @@
     }
 }
 
+
+
 .btn-primary-white{
     background-color: $white;
     color: $primary;
@@ -39,4 +45,127 @@
         background-color: $gray-100;
         color: $primary;
     }
+}
+
+.btn-primary{
+    background-color: $blue;
+    color: $white;
+    border-radius: 50px;
+    padding: 10px 24px;
+    min-width: 128px;
+
+    &:hover{
+        color: $white;
+    }
+}
+ 
+.btn-secondary{ // $primary dan $blue gada bedanya sama saja
+    background-color: $white;
+    border-color: $blue;
+    color: $blue;
+    border-radius: 50px;
+    padding: 10px 24px;
+    min-width: 128px;
+
+    &:hover{
+        color: $white;
+        background-color: $blue;
+        border-color: $primary;
+    }
+}
+
+.h-315px{
+    height: 315px;
+}
+
+.min-h-372px{
+    min-height: 372px;
+}
+
+.bg-gray{
+    background-color: $gray-100;
+}
+
+.py-80px{
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.card{
+    border: none;
+    border-radius: 20px;
+    padding: 24px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.color-gray{
+    color: $gray-500;
+}
+
+.text-bg-light{
+    &:hover{
+        color: $primary !important;
+    }
+}
+
+.card-avatar-sm{
+    width: 18px;
+    height: 18px;
+}
+
+.avatar-sm-wrapper{
+    height: 18px;
+    width: 18px;
+}
+
+.avatar{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.fs-12px{
+    font-size: 12px;
+}
+
+footer{
+    background-color: $gray-800;
+}
+
+.me-140px{
+    margin-right: 180px;
+}
+
+.like-icon{
+    height: 30px;
+    width: 30px;
+}
+
+pre{ // utk summornote code
+    padding: 12px;
+    font-size: 14px;
+    background-color: #fafbfd;
+    border: 1px solid #eaecf0;
+    border-radius: 6px;
+    color: #68747f;
+}
+
+
+.avatar-wrapper{
+    width: 120px;
+    height: 120px;
+}
+
+.avatar-nav-wrapper{
+    width: 36px;
+    height: 36px;
+}
+
+.card-discussion-delete-btn{
+    position: relative;
+    top: -2px;
 }

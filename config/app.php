@@ -185,4 +185,7 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    // agar lbh aman or best practice. ngambilnya dari cofig.app, bkn dari env
+    'avatar_generator_url' => env('AVATAR_GENERATOR_URL')
+
 ];
