@@ -12,7 +12,7 @@
             <ul class="navbar-nav mx-0 mx-lg-3">
                 <li class="nav-item d-block d-lg-none d-xl-block">
                     <a class="nav-link {{ Route::currentRouteName() === 'home' ? 'active' : '' }}" aria-current="page"
-                        href="{{ route('home') }}">Home</a>
+                        href="{{ route('home') }}">Homee</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Route::currentRouteName() === 'discussions.index' ? 'active' : '' }}"
