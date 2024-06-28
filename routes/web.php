@@ -26,12 +26,10 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::namespace('App\Http\Controllers')->group(function () {
-        // jadi nanti index dan show itu tidak di dlm middelware (artinya dia bisa di akses tanpa harus login)
-        // only itu utk penjagaan yang di dlm auth sisanya index dan show tdk bsa harus login
         Route::resource('discussions', DiscussionController::class)->only(['create', 'store', 'edit', 'update', 'destroy']); // jd nnt index dan show itu dluar 
 
         // Answer
-        Route::post('discussions/{discussion}/answer', 'AnswerController@store')->name('discussions.answer.store');
+        Route::post('discussions/{disioncuss}/answer', 'AnswerController@store')->name('discussions.answer.store');
         Route::resource('answers', AnswerController::class)->only(['edit', 'update', 'destroy']);
 
         // likeController discussion

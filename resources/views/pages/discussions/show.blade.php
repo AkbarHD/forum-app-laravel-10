@@ -143,7 +143,7 @@
                                                 <a href="#"
                                                     class="card-discussions-show-avatar-wrapper flex-shrink-0 rounded-circle overflow-hidden me-1">
                                                     {{-- yg masi bingung models answer pdhl tdk punya relasi belongsto ke user_id tp bisa berelasi --}}
-                                                    <img src="{{ filter_var($answer->User->picture . FILTER_VALIDATE_URL) ? $answer->User->picture : Storage::url($answer->User->picture) }}"
+                                                    <img src="{{ filter_var($answer->User->picture, FILTER_VALIDATE_URL) ? $answer->User->picture : Storage::url($answer->User->picture) }}"
                                                         class="avatar" alt="{{ $answer->User->username }}">
                                                 </a>
 

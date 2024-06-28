@@ -31,7 +31,7 @@ class UserController extends Controller
         $picture = filter_var($user->picture, FILTER_VALIDATE_URL) ? $user->picture : Storage::url($user->picture);
 
         // utk mengatasi 2 paginate dalam 1 pages
-        $perPage = 1;
+        $perPage = 5;
         $columns = ['*'];
         $discussionsPageName = 'discussions';
         $answersPageName = 'answers';
@@ -69,8 +69,8 @@ class UserController extends Controller
         // get user brdsrkan username
         // cek jika user tdk ada atau user id tdk sm dgn id milik user yg sdg login
         // maka return page not found
-        // get request yg tervalidasi 
-        // cek apakah password diisi 
+        // get request yg tervalidasi
+        // cek apakah password diisi
         // jika iya maka nilainya di biarkan dan hash password tsb
         // jika tdk maka hapus password di validated
         // cek apakah nilai picture tdk kosong
@@ -78,7 +78,7 @@ class UserController extends Controller
         // cek apakah nilai picture di tabel itu bukan url
         // jika bukan maka hapus dlu picture tsb dari disk storage kita
         // masukan url tsb ke variabel validated
-        // upodate record 
+        // upodate record
         // jika update berhasil maka kirim notif success dan redirect ke user profile kita]
         // jika tdk maka abort 500
 
@@ -96,7 +96,7 @@ class UserController extends Controller
             unset($validated['password']);
         }
 
-        // jika ganti gambar 
+        // jika ganti gambar
         if ($request->hasFile('picture')) {
             // dan jika gambar ini bukan url
             if (filter_var($user->picture, FILTER_VALIDATE_URL) === false) {
