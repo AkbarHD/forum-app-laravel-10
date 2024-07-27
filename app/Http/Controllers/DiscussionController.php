@@ -27,7 +27,7 @@ class DiscussionController extends Controller
         return response()->view('pages.discussions.index', [
             // tampilkan isi discussion filter desc berdsarkan created_at dan batasi 10
             'discussions' => $discussions->orderBy('created_at', 'desc')->paginate(10)->withQueryString(), // ini harus samakan dengan yg di category controller
-            'categories'  => Category::all(),
+            'categories' => Category::all(),
             'search' => $request->search,
         ]);
     }
@@ -51,10 +51,10 @@ class DiscussionController extends Controller
     public function store(StoreRequest $request)
     {
         $validated = $request->validated();
-        // cari kategori brdsrkan slug, slug yg dipilih user -> dptkan 1 row -> ambil id saja 
+        // cari kategori brdsrkan slug, slug yg dipilih user -> dptkan 1 row -> ambil id saja
         $category_id = Category::where('slug', $validated['category_slug'])->first()->id;
         $validated['category_id'] = $category_id;
-        $validated['user_id'] =  auth()->id(); // bgsnya laravel itu lngsung bs ambil user tanpa ambil apapun
+        $validated['user_id'] = auth()->id(); // bgsnya laravel itu lngsung bs ambil user tanpa ambil apapun
         $validated['slug'] = Str::slug($validated['title']) . '-' . time();
 
         $striptContent = strip_tags($validated['content']); // ambil isi content dari form discussions
@@ -81,7 +81,7 @@ class DiscussionController extends Controller
         $discussionAnswers = Answer::where('discussion_id', $discussion->id)
             ->orderBy('created_at', 'desc')->paginate(5);
 
-        if (!$discussion) { // ini utk url 
+        if (!$discussion) { // ini utk url
             return abort(404);
         }
 
@@ -102,10 +102,10 @@ class DiscussionController extends Controller
      */
     public function edit(string $slug)
     {
-        // jd studi kasus ini form edit dan form create itu di jadikan 1 
+        // jd studi kasus ini form edit dan form create itu di jadikan 1
         $discussion = Discussion::with('Category')->where('slug', $slug)->first();
 
-        if (!$discussion) { //jd gini,  jika url salah itu akan muncul error maka kita bikin kaya gini 
+        if (!$discussion) { //jd gini,  jika url salah itu akan muncul error maka kita bikin kaya gini
             return abort(404);
         }
 
@@ -128,7 +128,7 @@ class DiscussionController extends Controller
     {
         $discussion = Discussion::with('Category')->where('slug', $slug)->first();
 
-        if (!$discussion) { //jd gini,  jika url salah itu akan muncul error maka kita bikin kaya gini 
+        if (!$discussion) { //jd gini,  jika url salah itu akan muncul error maka kita bikin kaya gini
             return abort(404);
         }
 
@@ -139,10 +139,10 @@ class DiscussionController extends Controller
         }
 
         $validated = $request->validated();
-        // cari kategori brdsrkan slug, slug yg dipilih user -> dptkan 1 row -> ambil id saja 
+        // cari kategori brdsrkan slug, slug yg dipilih user -> dptkan 1 row -> ambil id saja
         $category_id = Category::where('slug', $validated['category_slug'])->first()->id;
         $validated['category_id'] = $category_id;
-        $validated['user_id'] =  auth()->id(); // bgsnya laravel itu lngsung bs ambil user tanpa ambil apapun
+        $validated['user_id'] = auth()->id(); // bgsnya laravel itu lngsung bs ambil user tanpa ambil apapun
         // field slug tdk kita update
 
         $striptContent = strip_tags($validated['content']); // ambil isi content dari form discussions
@@ -150,7 +150,7 @@ class DiscussionController extends Controller
         $validated['content_preview'] = $isContentLong ? (substr($striptContent, 0, 120) . '...') : $striptContent; // jika iya maka batasi sampai 120 karakter jika tidak maka tulis biasa saja
 
         // kayanya kalo emg first harus seperti ini dan resiko update tdk berdasakan id mungkin ini bedanya
-        $update =  Discussion::with('Category')->where('slug', $slug)->first()->update($validated);
+        $update = Discussion::with('Category')->where('slug', $slug)->first()->update($validated);
 
 
         // dd($request->all());
