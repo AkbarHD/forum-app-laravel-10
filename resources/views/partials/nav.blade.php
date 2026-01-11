@@ -9,7 +9,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-0 mx-lg-3">
+            <ul class="navbar-nav mx-0 mx-lg-2">
                 <li class="nav-item d-block d-lg-none d-xl-block">
                     <a class="nav-link {{ Route::currentRouteName() === 'home' ? 'active' : '' }}" aria-current="page"
                         href="{{ route('home') }}">Homee</a>

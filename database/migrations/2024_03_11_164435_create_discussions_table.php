@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('content_preview');
             $table->string('content');
             $table->timestamps();
-            $table->softDeletes(); // dilaravel 9 itu tdk menggunakan ini 
+            $table->softDeletes(); // dilaravel 9 itu tdk menggunakan ini
         });
     }
 

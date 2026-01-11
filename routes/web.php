@@ -25,8 +25,10 @@ Route::middleware('auth')->group(function () {
         Route::resource('users', UserController::class)->only(['show', 'edit', 'update']);
     });
 
+
+
     Route::namespace('App\Http\Controllers')->group(function () {
-        Route::resource('discussions', DiscussionController::class)->only(['create', 'store', 'edit', 'update', 'destroy']); // jd nnt index dan show itu dluar 
+        Route::resource('discussions', DiscussionController::class)->only(['create', 'store', 'edit', 'update', 'destroy']); // jd nnt index dan show itu dluar
 
         // Answer
         Route::post('discussions/{disioncuss}/answer', 'AnswerController@store')->name('discussions.answer.store');
@@ -44,31 +46,32 @@ Route::middleware('auth')->group(function () {
 
 // Route resource tapi bisa di akses tanpa login
 Route::namespace('App\Http\Controllers')->group(function () {
-    //Home (Halaman utama)
-    Route::get('/', 'HomeController@index')->name('home');
+            //Home (Halaman utama)
+            Route::get('/', 'HomeController@index')->name('home');
 
-    Route::resource('discussions', DiscussionController::class)->only(['index', 'show']);
+            Route::resource('discussions', DiscussionController::class)->only(['index', 'show']);
 
-    // Category Controller
-    Route::get('discussions/categories/{categories}', 'CategoryController@show')
-        ->name('discussions.categories.show');
-});
+            // Category Controller
+            Route::get('discussions/categories/{categories}', 'CategoryController@show')
+                ->name('discussions.categories.show');
+        });
 
 // ------------------------------------ Discussions --------------------------------------------------
 
 
 // ----------- auth ------------
-Route::namespace('App\Http\Controllers\Auth')->group(function () {
-    Route::get('/login', 'LoginController@show')->name('auth.login.show');
-    Route::post('/login', 'LoginController@login')->name('auth.login.login');
-    Route::post('/logout', 'LoginController@logout')->name('auth.login.logout');
-    // ---------- sign Up -------
-    Route::get('/sign-up', 'SignupController@show')->name('auth.sign-up.show');
-    Route::post('/sign-up', 'SignupController@signUp')->name('auth.sign-up.sign-up');
-});
+Route::
+        namespace('App\Http\Controllers\Auth')->group(function () {
+            Route::get('/login', 'LoginController@show')->name('auth.login.show');
+            Route::post('/login', 'LoginController@login')->name('auth.login.login');
+            Route::post('/logout', 'LoginController@logout')->name('auth.login.logout');
+            // ---------- sign Up -------
+            Route::get('/sign-up', 'SignupController@show')->name('auth.sign-up.show');
+            Route::post('/sign-up', 'SignupController@signUp')->name('auth.sign-up.sign-up');
+        });
 
 
-// ----------- end auth ------------ 
+// ----------- end auth ------------
 
 // Route::get('/', function () {
 //     return view('home');
@@ -76,7 +79,7 @@ Route::namespace('App\Http\Controllers\Auth')->group(function () {
 
 // ---------------------------------
 // Route::get('/discussions', function () {
-    //     return view('pages.discussions.index');
+//     return view('pages.discussions.index');
 // })->name('discussions.index');
 // Route::get('/discussions/lorem', function () {
 //     return view('pages.discussions.show');
